@@ -28,6 +28,10 @@ export async function login(payload: LoginPayload): Promise<LoginResult> {
     throw new Error('帳號或密碼錯誤，請再試一次')
   }
 
+  if (!account.user.isActive) {
+    throw new Error('此帳號已停用，請聯絡系統管理員')
+  }
+
   return {
     token: `${TOKEN_PREFIX}${account.user.id}`,
     user: account.user,
