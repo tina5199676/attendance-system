@@ -52,6 +52,7 @@
 src/
 - assets/：圖片、圖示及靜態資源
 - components/：共用 UI 元件
+- composables/：可重用的組合式函式（use 開頭）
 - layouts/：頁面整體版型
 - pages/：各功能頁面
 - router/：路由設定

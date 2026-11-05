@@ -42,6 +42,12 @@ export function formatMonthLabel(key: string): string {
   return `${year} 年 ${Number(month)} 月`
 }
 
+/** 'YYYY-MM' → '11 月'，用於圖表 X 軸 */
+export function formatMonthShort(key: string): string {
+  const [, month] = key.split('-')
+  return `${Number(month)} 月`
+}
+
 /** 'HH:mm' → 分鐘數，方便比較早晚 */
 export function timeToMinutes(time: string): number {
   const [hours, minutes] = time.split(':').map(Number)

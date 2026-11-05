@@ -52,16 +52,22 @@ const routes: RouteRecordRaw[] = [
         meta: { title: '出勤紀錄', navOrder: 2 },
       },
       {
+        path: 'statistics',
+        name: 'statistics',
+        component: () => import('@/pages/StatisticsPage.vue'),
+        meta: { title: '出勤統計', navOrder: 3 },
+      },
+      {
         path: 'leave',
         name: 'leave',
         component: () => import('@/pages/LeavePage.vue'),
-        meta: { title: '請假管理', navOrder: 3 },
+        meta: { title: '請假管理', navOrder: 4 },
       },
       {
         path: 'users',
         name: 'users',
         component: () => import('@/pages/UsersPage.vue'),
-        meta: { title: '使用者管理', navOrder: 4, roles: ['admin'] },
+        meta: { title: '使用者管理', navOrder: 5, roles: ['admin'] },
       },
       {
         path: 'forbidden',

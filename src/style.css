@@ -34,6 +34,16 @@
     'Segoe UI', Roboto, sans-serif;
 
   --sidebar-width: 240px;
+
+  /* 圖表專用：序列色沿用品牌色，狀態色沿用上方 token；
+     區塊順序「正常、遲到／早退、請假、缺勤」已通過色覺模擬驗證 */
+  --chart-series: var(--color-primary);
+  --chart-good: var(--color-success);
+  --chart-warning: var(--color-warning);
+  --chart-info: var(--color-primary);
+  --chart-critical: var(--color-danger);
+  --chart-grid: #eef1f6;
+  --chart-axis: #cbd2dc;
 }
 
 /* ===== 基礎重設 ===== */
