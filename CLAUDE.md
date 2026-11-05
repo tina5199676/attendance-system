@@ -29,7 +29,9 @@
 - Django REST Framework
 - SQLite
 
-注意：前後端 API 尚未完成確認，不得自行假設 API 路徑、資料格式或驗證方式。
+注意：本專案為前端作品集，沒有真實後端，不串接 API。
+所有資料由 `src/services/mock/` 的假資料提供，`services/` 層以非同步函式模擬 API 呼叫，
+保留未來可替換為真實 API 的介面。資料欄位由開發時依常理設計，並在說明中列出供專案負責人調整。
 
 ## 三、開發規範
 
@@ -56,6 +58,7 @@ src/
 - services/：API 串接及服務
 - stores/：Pinia 狀態管理
 - types/：TypeScript 型別定義
+- utils/：純函式工具（日期格式化等）
 
 ## 五、Claude Code 協作規範
 
