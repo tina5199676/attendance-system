@@ -2,6 +2,8 @@
 
 以 Vue 3 + TypeScript 打造的出勤管理前端作品集，涵蓋登入驗證、角色權限、出勤打卡、請假審核與使用者管理。
 
+**線上展示：<https://attendance-system-zeta-gules.vercel.app/>**（登入頁列有測試帳號，點選即可帶入）
+
 本專案為純前端作品，沒有真實後端：所有資料由 `src/services/mock/` 的假資料提供，`services/` 層以非同步函式模擬 API 呼叫，保留未來可直接替換為真實 API 的介面。
 
 ## 功能總覽

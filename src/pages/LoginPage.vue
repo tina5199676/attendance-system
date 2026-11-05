@@ -97,7 +97,7 @@ function fillDemoAccount(account: MockAccount): void {
     </form>
 
     <section class="login__demo" aria-labelledby="demo-title">
-      <h3 id="demo-title" class="login__demo-title">測試帳號（開發期間）</h3>
+      <h3 id="demo-title" class="login__demo-title">測試帳號（點選即可帶入）</h3>
       <ul class="login__demo-list">
         <li v-for="account in MOCK_ACCOUNTS" :key="account.email">
           <button type="button" class="login__demo-item" :disabled="loading" @click="fillDemoAccount(account)">
