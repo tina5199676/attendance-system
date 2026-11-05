@@ -65,6 +65,14 @@ npm test         # 執行單元測試（Vitest）
 | 路由 | `router/index.test.ts` | 未登入導向、guestOnly、角色 403、404 |
 | 元件 | `components/**/*.test.ts` | BaseInput 無障礙屬性與 v-model、LeaveForm 驗證與事件 |
 
+## 部署
+
+專案已附 `vercel.json`，在 Vercel 匯入此 repo 後即可部署，之後每次 push 到 `main` 會自動重新發布：
+
+- `rewrites` 把所有路徑導回 `index.html`，讓 Vue Router 的 history 模式在重新整理時不會 404
+- `/assets/` 下帶 hash 的靜態檔設定一年快取
+- 加上 `X-Content-Type-Options` 與 `Referrer-Policy` 安全標頭
+
 ## 專案結構
 
 ```
