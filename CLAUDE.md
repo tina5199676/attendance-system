@@ -67,6 +67,7 @@ src/
 6. 不得在未經確認的情況下重構整個專案。
 7. 不得擅自刪除既有功能。
 8. 遇到不確定的需求或 API 規格時，先詢問，不得自行捏造。
+9. 遇到危險操作（刪除檔案、改寫 Git 歷史、強制推送、修改系統設定等）或需要接觸敏感資料（鑰匙圈、密碼、Token、.env、個資等）時，必須先詢問專案負責人，取得同意後才能執行。
 
 ## 六、學習與程式碼品質
 
@@ -86,8 +87,10 @@ src/
 
 ## 七、Git 與 AI 協作
 
-1. 保留專案負責人的 Git 作者身分。
-2. Claude Code 實際參與程式碼修改時，保留共同作者 attribution。
+1. Commit 作者依實際撰寫者決定，讓 GitHub Contributors 同時呈現專案負責人與 Claude：
+   - 程式碼主要由 Claude 撰寫：作者為 Claude Fable 5.1 <noreply@anthropic.com>，專案負責人掛 Co-Authored-By。
+   - 程式碼由專案負責人撰寫或主導修改：作者為專案負責人，Claude 視參與程度掛 Co-Authored-By。
+2. 每筆 Claude 參與的 Commit 都必須保留另一方的 Co-Authored-By attribution。
 3. 使用 Conventional Commits 格式。
 4. Commit 類型使用 feat、fix、docs、refactor、test、chore。
 5. 提交前檢查 git diff。
