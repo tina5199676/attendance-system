@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { RouterLink, RouterView, useRouter } from 'vue-router'
 import BaseButton from '@/components/BaseButton.vue'
 import ToastList from '@/components/ToastList.vue'
+import ThemeToggle from '@/components/ThemeToggle.vue'
 import { useAuthStore } from '@/stores/auth'
 import { ROLE_LABELS } from '@/types/user'
 
@@ -65,6 +66,10 @@ async function handleLogout(): Promise<void> {
           {{ item.title }}
         </RouterLink>
       </nav>
+
+      <div class="sidebar__theme">
+        <ThemeToggle />
+      </div>
 
       <div v-if="auth.user" class="sidebar__user">
         <div class="sidebar__avatar" aria-hidden="true">{{ auth.user.name.charAt(0) }}</div>
@@ -150,6 +155,10 @@ async function handleLogout(): Promise<void> {
   font-weight: 600;
 }
 
+.sidebar__theme {
+  padding: 12px 0;
+}
+
 .sidebar__user {
   display: flex;
   align-items: center;
@@ -216,6 +225,10 @@ async function handleLogout(): Promise<void> {
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 12px;
+  }
+
+  .sidebar__theme {
+    padding: 0 0 12px;
   }
 
   .sidebar__user {

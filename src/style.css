@@ -8,7 +8,9 @@
 
   --color-bg: #f5f7fb;
   --color-surface: #ffffff;
+  --color-surface-hover: #fafbfd;
   --color-border: #e3e8f0;
+  --color-overlay: rgba(15, 23, 42, 0.45);
 
   --color-text: #1b2333;
   --color-text-muted: #64748b;
@@ -35,15 +37,62 @@
 
   --sidebar-width: 240px;
 
-  /* 圖表專用：序列色沿用品牌色，狀態色沿用上方 token；
-     區塊順序「正常、遲到／早退、請假、缺勤」已通過色覺模擬驗證 */
-  --chart-series: var(--color-primary);
-  --chart-good: var(--color-success);
-  --chart-warning: var(--color-warning);
-  --chart-info: var(--color-primary);
-  --chart-critical: var(--color-danger);
+  /* 圖表專用：四個狀態色固定不隨主題改變（同一組在淺色與深色表面都通過色覺模擬驗證），
+     只有序列色、格線與座標軸會依主題調整 */
+  --chart-series: #2f6fed;
+  --chart-good: #16a34a;
+  --chart-warning: #d97706;
+  --chart-info: #2f6fed;
+  --chart-critical: #dc2626;
   --chart-grid: #eef1f6;
   --chart-axis: #cbd2dc;
+
+  /* 請假月曆：核准人數三階深淺（單一色相） */
+  --calendar-level-1: #e8effd;
+  --calendar-level-2: #cddcfb;
+  --calendar-level-3: #aec6f8;
+
+  color-scheme: light;
+}
+
+/* ===== 深色主題 =====
+   由 stores/theme.ts 在 <html> 上設定 data-theme；index.html 的啟動腳本會在
+   第一次繪製前先設好，避免閃白。 */
+:root[data-theme='dark'] {
+  --color-primary: #5b8def;
+  --color-primary-hover: #7aa3f3;
+  --color-primary-soft: rgba(91, 141, 239, 0.18);
+
+  --color-bg: #0f1218;
+  --color-surface: #171b23;
+  --color-surface-hover: #1d222c;
+  --color-border: #2a303b;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+
+  --color-text: #e6e9ef;
+  --color-text-muted: #9aa4b5;
+  --color-text-subtle: #6b7484;
+
+  --color-success: #34c76a;
+  --color-success-soft: rgba(52, 199, 106, 0.16);
+  --color-warning: #f0a030;
+  --color-warning-soft: rgba(240, 160, 48, 0.16);
+  --color-danger: #f06565;
+  --color-danger-hover: #f28585;
+  --color-danger-soft: rgba(240, 101, 101, 0.16);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  --chart-series: #5b8def;
+  --chart-grid: #262c37;
+  --chart-axis: #3b4350;
+
+  --calendar-level-1: rgba(91, 141, 239, 0.16);
+  --calendar-level-2: rgba(91, 141, 239, 0.3);
+  --calendar-level-3: rgba(91, 141, 239, 0.46);
+
+  color-scheme: dark;
 }
 
 /* ===== 基礎重設 ===== */

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import ThemeToggle from '@/components/ThemeToggle.vue'
 </script>
 
 <template>
@@ -20,6 +21,9 @@ import { RouterView } from 'vue-router'
     </aside>
 
     <main class="auth-layout__content">
+      <div class="auth-layout__theme">
+        <ThemeToggle />
+      </div>
       <div class="auth-layout__card">
         <RouterView />
       </div>
@@ -70,10 +74,17 @@ import { RouterView } from 'vue-router'
 }
 
 .auth-layout__content {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px 16px;
+  padding: 72px 16px 32px;
+}
+
+.auth-layout__theme {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .auth-layout__card {

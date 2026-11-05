@@ -164,15 +164,15 @@ function ariaLabel(day: CalendarDay): string {
 
 /* 單一色相、三階深淺：核准人數越多越深 */
 .calendar__cell--level-1 {
-  background: #e8effd;
+  background: var(--calendar-level-1);
 }
 
 .calendar__cell--level-2 {
-  background: #cddcfb;
+  background: var(--calendar-level-2);
 }
 
 .calendar__cell--level-3 {
-  background: #aec6f8;
+  background: var(--calendar-level-3);
 }
 
 .calendar__cell--clickable {

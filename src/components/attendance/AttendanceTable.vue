@@ -81,7 +81,7 @@ withDefaults(
 }
 
 .table tbody tr:hover td {
-  background: #fafbfd;
+  background: var(--color-surface-hover);
 }
 
 .table__date {

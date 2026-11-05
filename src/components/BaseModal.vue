@@ -69,7 +69,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 16px;
-  background: rgba(15, 23, 42, 0.45);
+  background: var(--color-overlay);
 }
 
 .modal__dialog {
