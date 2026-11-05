@@ -59,6 +59,44 @@ export function isWeekend(date: Date): boolean {
   return day === 0 || day === 6
 }
 
+/** 'YYYY-MM' 往前或往後移動 n 個月 */
+export function addMonths(key: string, delta: number): string {
+  const [year, month] = key.split('-').map(Number)
+  return toMonthKey(new Date(year ?? 1970, (month ?? 1) - 1 + delta, 1))
+}
+
+/** 起訖日（含）之間的每一天 'YYYY-MM-DD' */
+export function eachDateKey(start: string, end: string): string[] {
+  const keys: string[] = []
+  const cursor = parseDateKey(start)
+  const last = parseDateKey(end)
+  while (cursor <= last) {
+    keys.push(toDateKey(cursor))
+    cursor.setDate(cursor.getDate() + 1)
+  }
+  return keys
+}
+
+/**
+ * 月曆格：從該月 1 號所在週的星期日開始，回傳整週對齊的日期（每列 7 天），
+ * 會包含上個月尾與下個月初補滿的日子。
+ */
+export function monthGridDays(key: string): string[] {
+  const [year, month] = key.split('-').map(Number)
+  const first = new Date(year ?? 1970, (month ?? 1) - 1, 1)
+  const daysInMonth = new Date(year ?? 1970, month ?? 1, 0).getDate()
+  const leading = first.getDay()
+  const rows = Math.ceil((leading + daysInMonth) / 7)
+  const start = new Date(first)
+  start.setDate(first.getDate() - leading)
+
+  return Array.from({ length: rows * 7 }, (_, index) => {
+    const date = new Date(start)
+    date.setDate(start.getDate() + index)
+    return toDateKey(date)
+  })
+}
+
 /** 取得最近 n 個月的 'YYYY-MM'，由新到舊 */
 export function recentMonthKeys(count: number, from: Date = new Date()): string[] {
   const keys: string[] = []

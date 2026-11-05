@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import SegmentedControl, { type SegmentedOption } from '@/components/SegmentedControl.vue'
 
 /**
  * 圖表卡片：標題、說明與「圖表 / 表格」切換。
@@ -10,8 +11,11 @@ defineProps<{
   subtitle?: string
 }>()
 
-type View = 'chart' | 'table'
-const view = ref<View>('chart')
+const view = ref('chart')
+const viewOptions: SegmentedOption[] = [
+  { value: 'chart', label: '圖表' },
+  { value: 'table', label: '表格' },
+]
 </script>
 
 <template>
@@ -21,10 +25,7 @@ const view = ref<View>('chart')
         <h2 class="chart-card__title">{{ title }}</h2>
         <p v-if="subtitle" class="chart-card__subtitle">{{ subtitle }}</p>
       </div>
-      <div class="chart-card__toggle" role="group" aria-label="切換檢視方式">
-        <button type="button" :class="{ 'is-active': view === 'chart' }" :aria-pressed="view === 'chart'" @click="view = 'chart'">圖表</button>
-        <button type="button" :class="{ 'is-active': view === 'table' }" :aria-pressed="view === 'table'" @click="view = 'table'">表格</button>
-      </div>
+      <SegmentedControl v-model="view" :options="viewOptions" label="切換檢視方式" />
     </header>
 
     <div class="chart-card__body">
@@ -62,28 +63,6 @@ const view = ref<View>('chart')
   margin-top: 2px;
   font-size: 12px;
   color: var(--color-text-muted);
-}
-
-.chart-card__toggle {
-  display: flex;
-  flex-shrink: 0;
-  padding: 2px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-}
-
-.chart-card__toggle button {
-  padding: 3px 10px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  cursor: pointer;
-}
-
-.chart-card__toggle button.is-active {
-  background: var(--color-primary-soft);
-  color: var(--color-primary);
 }
 
 .chart-card__body {
