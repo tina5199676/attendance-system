@@ -24,6 +24,11 @@
 - Axios
 - CSS
 
+### 測試
+- Vitest
+- jsdom
+- @vue/test-utils
+
 ### Backend
 - Python
 - Django REST Framework
@@ -46,6 +51,7 @@
 9. 遵循現有資料夾架構。
 10. 未經確認不得任意增加依賴套件。
 11. 不得任意修改與當前任務無關的檔案。
+12. 純函式、服務層與 store 應有對應的單元測試（Vitest，檔名 `*.test.ts` 與原始檔同目錄）；提交前執行 `npm test` 確認通過。
 
 ## 四、資料夾架構
 

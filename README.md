@@ -40,6 +40,7 @@
 - Vue Router（巢狀版型、全域守衛處理登入與角色權限）
 - Pinia（setup store 寫法）
 - Axios（已建立共用實例，預留串接真實 API）
+- Vitest + Vue Test Utils（單元測試）
 - 原生 CSS（設計 token 集中於 `src/style.css`，元件使用 scoped CSS）
 
 ## 開始使用
@@ -49,7 +50,20 @@ npm install
 npm run dev      # 開發伺服器 http://localhost:5173
 npm run build    # 型別檢查 + 正式建置
 npm run preview  # 預覽建置結果
+npm test         # 執行單元測試（Vitest）
 ```
+
+## 測試
+
+使用 Vitest、jsdom 與 Vue Test Utils，目前共 8 個測試檔、42 個測試：
+
+| 範圍 | 檔案 | 重點 |
+| --- | --- | --- |
+| 純函式 | `utils/*.test.ts` | 日期工具、出勤統計、請假月曆展開 |
+| 服務層 | `services/attendanceService.test.ts` | 打卡的遲到／早退判定、重複打卡錯誤 |
+| 狀態 | `stores/auth.test.ts` | 登入、還原登入、登出與角色判斷 |
+| 路由 | `router/index.test.ts` | 未登入導向、guestOnly、角色 403、404 |
+| 元件 | `components/**/*.test.ts` | BaseInput 無障礙屬性與 v-model、LeaveForm 驗證與事件 |
 
 ## 專案結構
 
