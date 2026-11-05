@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { RouterLink, RouterView, useRouter } from 'vue-router'
 import BaseButton from '@/components/BaseButton.vue'
+import ToastList from '@/components/ToastList.vue'
 import { useAuthStore } from '@/stores/auth'
 import { ROLE_LABELS } from '@/types/user'
 
@@ -78,6 +79,8 @@ async function handleLogout(): Promise<void> {
     <main class="content">
       <RouterView />
     </main>
+
+    <ToastList />
   </div>
 </template>
 

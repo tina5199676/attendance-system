@@ -10,12 +10,14 @@ import ClockCard from '@/components/attendance/ClockCard.vue'
 import { fetchUsers } from '@/services/userService'
 import { useAttendanceStore } from '@/stores/attendance'
 import { useAuthStore } from '@/stores/auth'
+import { useToastStore } from '@/stores/toast'
 import { ATTENDANCE_STATUS_LABELS, type AttendanceQuery, type AttendanceStatus } from '@/types/attendance'
 import type { User } from '@/types/user'
 import { formatMonthLabel, recentMonthKeys, toMonthKey } from '@/utils/date'
 
 const auth = useAuthStore()
 const attendance = useAttendanceStore()
+const toast = useToastStore()
 
 const isStudent = computed(() => auth.role === 'student')
 
@@ -65,8 +67,10 @@ async function handleClock(action: 'in' | 'out'): Promise<void> {
   try {
     if (action === 'in') {
       await attendance.clockIn(auth.user.id)
+      toast.success('上班打卡成功，今天也加油！')
     } else {
       await attendance.clockOut(auth.user.id)
+      toast.success('下班打卡成功，辛苦了。')
     }
     // 打卡會新增或更新今天的紀錄，重新載入列表讓表格同步
     await attendance.loadRecords(query.value)
